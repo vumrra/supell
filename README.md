@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="public/icon/128.png" width="100" alt="Supell 로고">
+  <img src="public/icon/128.png" width="100" alt="supell 로고">
 </p>
 
-<h1 align="center">Supell</h1>
+<h1 align="center">supell</h1>
 
 <p align="center">
     <a href="https://search.naver.com/search.naver?query=%EB%A7%9E%EC%B6%A4%EB%B2%95%20%EA%B2%80%EC%82%AC%EA%B8%B0">네이버 맞춤법 검사기</a> 기반 한글 맞춤법 검사 크롬 Extension
