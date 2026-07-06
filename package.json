@@ -2,7 +2,7 @@
   "name": "supell",
   "description": "네이버 맞춤법 검사기를 이용한 한글 맞춤법 검사 크롬 확장",
   "private": true,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "author": "vumrra",
   "type": "module",
