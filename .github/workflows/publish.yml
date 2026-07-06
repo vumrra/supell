@@ -1,0 +1,48 @@
+name: Publish to Chrome Web Store
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Verify tag matches package.json version
+        run: |
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          PKG_VERSION="$(node -p "require('./package.json').version")"
+          echo "tag=$TAG_VERSION  package.json=$PKG_VERSION"
+          if [ "$TAG_VERSION" != "$PKG_VERSION" ]; then
+            echo "::error::태그($TAG_VERSION)와 package.json($PKG_VERSION) 버전이 다릅니다. package.json version을 먼저 올리고 같은 번호로 태그를 다세요."
+            exit 1
+          fi
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build & zip
+        run: npm run zip
+
+      - name: Upload to Chrome Web Store (draft, no publish)
+        run: |
+          ZIP="$(ls .output/*-chrome.zip | head -n1)"
+          echo "uploading: $ZIP"
+          npx --yes chrome-webstore-upload-cli@3 upload \
+            --source "$ZIP" \
+            --extension-id "${{ env.EXTENSION_ID }}" \
+            --client-id "${{ secrets.CWS_CLIENT_ID }}" \
+            --client-secret "${{ secrets.CWS_CLIENT_SECRET }}" \
+            --refresh-token "${{ secrets.CWS_REFRESH_TOKEN }}"
+    env:
+      EXTENSION_ID: gjpnnnnkakjblhehhndgpcjndlegmdfl
