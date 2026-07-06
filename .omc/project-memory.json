@@ -1,0 +1,105 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1783337070260,
+  "projectRoot": "/Users/huiseongshin/Project/supell",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      },
+      {
+        "name": "TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "tsconfig.json"
+        ]
+      }
+    ],
+    "frameworks": [],
+    "packageManager": "npm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "npm run build",
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": "npm run dev",
+    "scripts": {
+      "dev": "wxt",
+      "build": "wxt build",
+      "zip": "wxt zip",
+      "check": "tsc --noEmit",
+      "postinstall": "wxt prepare"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "docs",
+      "public"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "docs": {
+      "path": "docs",
+      "purpose": "Documentation",
+      "fileCount": 1,
+      "lastAccessed": 1783337070251,
+      "keyFiles": [
+        "demo.png"
+      ]
+    },
+    "entrypoints": {
+      "path": "entrypoints",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1783337070251,
+      "keyFiles": [
+        "background.ts"
+      ]
+    },
+    "public": {
+      "path": "public",
+      "purpose": "Public files",
+      "fileCount": 0,
+      "lastAccessed": 1783337070255,
+      "keyFiles": []
+    },
+    "utils": {
+      "path": "utils",
+      "purpose": "Utility functions",
+      "fileCount": 4,
+      "lastAccessed": 1783337070255,
+      "keyFiles": [
+        "chunk.ts",
+        "naver.ts",
+        "parse.ts",
+        "types.ts"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "package.json",
+      "accessCount": 1,
+      "lastAccessed": 1783337161608,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}

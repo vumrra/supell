@@ -3,7 +3,7 @@ name: Publish to Chrome Web Store
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
   publish:
@@ -16,7 +16,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
 
       - name: Verify tag matches package.json version
         run: |

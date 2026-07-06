@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"ls -la /Users/huiseongshin/Project/supell/package-lock.json /Users/huiseongshin/Project/supell/package.json /Users/huiseongshin/Project/supell/yarn.lock /Users/huiseongshin/Project/supell/...",
+  "error": "Exit code 1\nls: /Users/huiseongshin/Project/supell/package-lock.json: No such file or directory\nls: /Users/huiseongshin/Project/supell/pnpm-lock.yaml: No such file or directory\nls: /Users/huiseongshin/Project/supell/yarn.lock: No such file or directory\n-rw-r--r--@ 1 huiseongshin  staff  473  7월  6 20:24 /Users/huiseongshin/Project/supell/package.json",
+  "timestamp": "2026-07-06T11:25:57.662Z",
+  "retry_count": 1
+}
