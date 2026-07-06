@@ -7,6 +7,9 @@
 <p align="center">
     <a href="https://search.naver.com/search.naver?query=%EB%A7%9E%EC%B6%A4%EB%B2%95%20%EA%B2%80%EC%82%AC%EA%B8%B0">네이버 맞춤법 검사기</a> 기반 한글 맞춤법 검사 크롬 Extension
 </p>
+<p align="center">
+    <a href="https://chromewebstore.google.com/detail/supell-%ED%95%9C%EA%B8%80-%EB%A7%9E%EC%B6%A4%EB%B2%95-%EA%B2%80%EC%82%AC/gjpnnnnkakjblhehhndgpcjndlegmdfl">chromewebstore 🔗</a>
+</p>
 
 
 
@@ -14,16 +17,7 @@
   <img src="docs/demo.png" width="620" alt="입력을 멈추면 교정 결과가 모달로 뜨는 모습">
 </p>
 
-## 수동 설치 방법
 
-```bash
-npm install
-npm run build
-```
-
-1. 크롬에서 `chrome://extensions` 접속
-2. `압축해제된 확장 프로그램을 로드` 클릭
-3. `.output/chrome-mv3` 폴더 선택
 
 ## 기능
 
@@ -69,6 +63,17 @@ utils/
 ├── parse.ts            응답 HTML을 (원본 → 교정) 목록으로 파싱
 └── types.ts            공용 타입
 ```
+
+## 수동 설치 방법
+
+```bash
+npm install
+npm run build
+```
+
+1. 크롬에서 `chrome://extensions` 접속
+2. `압축해제된 확장 프로그램을 로드` 클릭
+3. `.output/chrome-mv3` 폴더 선택
 
 ## 사용에 대한 안내
 
