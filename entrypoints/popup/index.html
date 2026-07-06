@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>supell</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <img class="logo" src="/icon/48.png" alt="" />
+      <div>
+        <h1 class="title">supell</h1>
+        <p class="subtitle">한글 맞춤법 검사</p>
+      </div>
+    </header>
+
+    <main class="settings">
+      <label class="setting setting--master">
+        <span class="setting__text">
+          <span class="setting__label">맞춤법 검사 사용</span>
+          <span class="setting__hint">끄면 모든 검사가 멈춰요</span>
+        </span>
+        <span class="switch">
+          <input type="checkbox" id="toggle-enabled" />
+          <span class="switch__track"></span>
+        </span>
+      </label>
+
+      <div class="divider"></div>
+
+      <label class="setting">
+        <span class="setting__text">
+          <span class="setting__label">쓰면서 자동 검사</span>
+          <span class="setting__hint">입력을 멈추면 결과가 떠요</span>
+        </span>
+        <span class="switch">
+          <input type="checkbox" id="toggle-auto" />
+          <span class="switch__track"></span>
+        </span>
+      </label>
+
+      <label class="setting">
+        <span class="setting__text">
+          <span class="setting__label">드래그 검사</span>
+          <span class="setting__hint">선택한 문장을 검사해요</span>
+        </span>
+        <span class="switch">
+          <input type="checkbox" id="toggle-drag" />
+          <span class="switch__track"></span>
+        </span>
+      </label>
+    </main>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
