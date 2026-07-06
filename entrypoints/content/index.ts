@@ -5,6 +5,12 @@ import {
   type SpellCheckSuccess,
 } from '@/utils/types';
 import { SupellUi, type CorrectionActions } from './ui';
+import {
+  effectiveSettings,
+  loadSettings,
+  watchSettings,
+  type Settings,
+} from '@/utils/settings';
 
 const DEBOUNCE_MS = 500;
 const TOO_LONG_MESSAGE = '10,000자 이하의 글만 검사할 수 있어요.';
@@ -27,10 +33,26 @@ interface EditTarget {
 
 export default defineContentScript({
   matches: ['<all_urls>'],
-  main() {
+  async main() {
     const ui = new SupellUi();
-    watchTyping(ui);
-    watchSelection(ui);
+
+    // 팝업에서 켠/끈 설정을 따라간다. 저장값이 바뀌면 새로고침 없이 즉시 반영.
+    const active = { auto: false, drag: false };
+    const apply = (settings: Settings) => {
+      const effective = effectiveSettings(settings);
+      active.auto = effective.autoCheck;
+      active.drag = effective.dragCheck;
+      // 기능이 모두 꺼지면 떠 있던 UI도 정리한다.
+      if (!active.auto && !active.drag) {
+        ui.hideModal();
+        ui.hideTrigger();
+      }
+    };
+    apply(await loadSettings());
+    watchSettings(apply);
+
+    watchTyping(ui, () => active.auto);
+    watchSelection(ui, () => active.drag);
   },
 });
 
@@ -80,19 +102,26 @@ function makeCorrectionActions(target: EditTarget, res: SpellCheckSuccess): Corr
 
 // ---------- 기능 1: 입력 멈춤 감지 후 자동 검사 ----------
 
-function watchTyping(ui: SupellUi) {
+function watchTyping(ui: SupellUi, isEnabled: () => boolean) {
   const timers = new WeakMap<Editable, number>();
 
   document.addEventListener(
     'input',
     (e) => {
+      if (!isEnabled()) return;
       // 우리가 교정을 적용하며 발생시킨 합성 이벤트는 무시 (모달 유지)
       if (!e.isTrusted) return;
       const el = resolveEditable(e.target);
       if (!el) return;
       ui.hideModal();
       clearTimeout(timers.get(el));
-      timers.set(el, window.setTimeout(() => checkElement(ui, el), DEBOUNCE_MS));
+      // 대기하는 동안 기능이 꺼질 수 있으므로 실행 직전에 다시 확인한다.
+      timers.set(
+        el,
+        window.setTimeout(() => {
+          if (isEnabled()) checkElement(ui, el);
+        }, DEBOUNCE_MS),
+      );
     },
     true,
   );
@@ -168,8 +197,9 @@ interface SelectionInfo {
   target?: EditTarget;
 }
 
-function watchSelection(ui: SupellUi) {
+function watchSelection(ui: SupellUi, isEnabled: () => boolean) {
   document.addEventListener('mouseup', (e) => {
+    if (!isEnabled()) return;
     if (ui.containsEvent(e)) return;
     // 클릭 직후 selection 상태가 확정된 뒤 판단
     window.setTimeout(() => {

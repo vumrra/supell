@@ -1,6 +1,6 @@
 # Privacy Policy
 
-Last updated: July 3, 2026
+Last updated: July 6, 2026
 
 supell (the "extension") is a Chrome extension built for a single purpose: checking Korean spelling and grammar. This document explains what data the extension handles, where it goes, and what is stored.
 
@@ -13,6 +13,7 @@ supell (the "extension") is a Chrome extension built for a single purpose: check
 ## Data We Store
 
 - A single temporary token (`passportKey`) required to call the Naver API is kept in the browser's local storage (`chrome.storage.local`). It does not identify you and is refreshed automatically when it expires.
+- Your on/off preferences — whether the extension is enabled, and whether auto-check and drag-check are turned on — are saved in the same local storage so your choices persist between sessions. These are plain settings that stay on your device, do not identify you, and are never transmitted anywhere.
 - Nothing else is stored — no checked text, no browsing history, no usage statistics.
 
 ## Data We Do Not Collect
@@ -31,7 +32,7 @@ Questions about this policy: vvwv309@gmail.com or an issue on the GitHub reposit
 
 # 개인정보처리방침
 
-최종 수정일: 2026-07-03
+최종 수정일: 2026-07-06
 
 supell(이하 "확장 프로그램")은 한글 맞춤법 검사라는 단일 목적을 위해 만들어진 크롬 확장 프로그램입니다. 이 문서는 확장 프로그램이 어떤 데이터를 다루고, 어디로 보내며, 무엇을 저장하는지 설명합니다.
 
@@ -44,6 +45,7 @@ supell(이하 "확장 프로그램")은 한글 맞춤법 검사라는 단일 목
 ## 저장하는 데이터
 
 - 네이버 API 호출에 필요한 임시 토큰(`passportKey`) 하나를 브라우저 내부 저장소(`chrome.storage.local`)에 보관합니다. 이 토큰은 사용자를 식별하지 않으며, 만료되면 자동으로 갱신됩니다.
+- 확장 프로그램 사용 여부, 자동 검사, 드래그 검사의 켬/끔(on/off) 설정을 같은 내부 저장소에 저장해 사용자의 선택이 유지되도록 합니다. 이 값들은 단순한 설정으로 기기 안에만 머무르며, 사용자를 식별하지 않고 외부로 전송되지 않습니다.
 - 그 외에 저장하는 데이터는 없습니다. 검사한 텍스트, 방문 기록, 사용 통계 등 어떤 것도 기록하지 않습니다.
 
 ## 수집하지 않는 데이터
