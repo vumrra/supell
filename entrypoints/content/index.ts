@@ -15,6 +15,16 @@ import {
 const DEBOUNCE_MS = 500;
 const TOO_LONG_MESSAGE = '10,000자 이하의 글만 검사할 수 있어요.';
 
+/**
+ * '틀린 맞춤법만 표시' 설정. 켜져 있으면 고칠 게 없을 때 모달을 띄우지 않는다.
+ * 쓰면서 검사에만 적용된다 (드래그 검사는 사용자가 직접 누른 것이므로 항상 결과를 보여준다).
+ */
+let errorsOnly = false;
+
+function shouldSkipResult(res: SpellCheckResponse): boolean {
+  return errorsOnly && res.ok && res.corrections.length === 0;
+}
+
 /** 맞춤법 검사가 의미 없는 input 타입 (비밀번호, 숫자 등) */
 const EXCLUDED_INPUT_TYPES = new Set([
   'password', 'number', 'tel', 'email', 'url',
@@ -42,6 +52,7 @@ export default defineContentScript({
       const effective = effectiveSettings(settings);
       active.auto = effective.autoCheck;
       active.drag = effective.dragCheck;
+      errorsOnly = settings.errorsOnly;
       // 기능이 모두 꺼지면 떠 있던 UI도 정리한다.
       if (!active.auto && !active.drag) {
         ui.hideModal();
@@ -143,6 +154,7 @@ async function checkElement(ui: SupellUi, el: Editable) {
   const res = await requestCheck(text);
   // 응답을 기다리는 동안 내용이 바뀌었으면 결과가 무효
   if (readText(el) !== text) return;
+  if (shouldSkipResult(res)) return;
 
   const actions =
     res.ok && res.corrections.length > 0
