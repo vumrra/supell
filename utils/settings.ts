@@ -8,12 +8,15 @@ export interface Settings {
   autoCheck: boolean;
   /** 드래그로 선택한 문장 검사 */
   dragCheck: boolean;
+  /** 쓰면서 검사에서 틀린 것이 있을 때만 결과를 띄움 ("완벽해요!"는 표시하지 않음) */
+  errorsOnly: boolean;
 }
 
 export const DEFAULT_SETTINGS: Settings = {
   enabled: true,
   autoCheck: true,
   dragCheck: true,
+  errorsOnly: false,
 };
 
 const STORAGE_KEY = 'settings';
