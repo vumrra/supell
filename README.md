@@ -7,6 +7,14 @@
 <p align="center">
     <a href="https://search.naver.com/search.naver?query=%EB%A7%9E%EC%B6%A4%EB%B2%95%20%EA%B2%80%EC%82%AC%EA%B8%B0">네이버 맞춤법 검사기</a> 기반 한글 맞춤법 검사 크롬 Extension
 </p>
+
+<p align="center">
+  <a href="https://chromewebstore.google.com/detail/supell-%ED%95%9C%EA%B8%80-%EB%A7%9E%EC%B6%A4%EB%B2%95-%EA%B2%80%EC%82%AC/gjpnnnnkakjblhehhndgpcjndlegmdfl"><img src="https://img.shields.io/chrome-web-store/users/gjpnnnnkakjblhehhndgpcjndlegmdfl?label=users&amp;logo=googlechrome&amp;logoColor=white&amp;color=4285F4&amp;style=flat-square" alt="Chrome Web Store 사용자 수"></a>
+  <a href="https://chromewebstore.google.com/detail/supell-%ED%95%9C%EA%B8%80-%EB%A7%9E%EC%B6%A4%EB%B2%95-%EA%B2%80%EC%82%AC/gjpnnnnkakjblhehhndgpcjndlegmdfl"><img src="https://img.shields.io/chrome-web-store/v/gjpnnnnkakjblhehhndgpcjndlegmdfl?label=version&amp;logo=googlechrome&amp;logoColor=white&amp;style=flat-square" alt="Chrome Web Store 버전"></a>
+  <a href="https://chromewebstore.google.com/detail/supell-%ED%95%9C%EA%B8%80-%EB%A7%9E%EC%B6%A4%EB%B2%95-%EA%B2%80%EC%82%AC/gjpnnnnkakjblhehhndgpcjndlegmdfl"><img src="https://img.shields.io/chrome-web-store/rating/gjpnnnnkakjblhehhndgpcjndlegmdfl?label=rating&amp;logo=googlechrome&amp;logoColor=white&amp;style=flat-square" alt="Chrome Web Store 평점"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="라이선스: MIT"></a>
+</p>
+
 <p align="center">
     <a href="https://chromewebstore.google.com/detail/supell-%ED%95%9C%EA%B8%80-%EB%A7%9E%EC%B6%A4%EB%B2%95-%EA%B2%80%EC%82%AC/gjpnnnnkakjblhehhndgpcjndlegmdfl">chromewebstore 🔗</a>
 </p>
