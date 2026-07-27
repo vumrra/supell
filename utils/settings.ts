@@ -16,7 +16,7 @@ export const DEFAULT_SETTINGS: Settings = {
   enabled: true,
   autoCheck: true,
   dragCheck: true,
-  errorsOnly: false,
+  errorsOnly: true,
 };
 
 const STORAGE_KEY = 'settings';
